@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "justin",
+    "password": "123456",
+    "database": "ecommerce-db",
+    "host": "postgres",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "justin",
+    "password": "123456",
+    "database": "database_test",
+    "host": "postgres",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "justin",
+    "password": "123456",
+    "database": "database_production",
+    "host": "postgres",
+    "dialect": "postgres"
+  }
+}

@@ -1,0 +1,39 @@
+services:
+  react-app:
+    build: ./ecommerce-platform
+    environment:
+      - WATCHPACK_POLLING=true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ecommerce-platform:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+
+  backend:
+    build: ./ecommerce-backend
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./ecommerce-backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: justin  # Replace with your desired username
+      POSTGRES_PASSWORD: 123456  # Replace with your desired password
+      POSTGRES_DB: ecommerce-db  # Replace with your desired database name
+    ports:
+      - "5432:5432"  # PostgreSQL default port
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist data
+
+volumes:
+  postgres_data:
